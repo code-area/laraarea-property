@@ -1,0 +1,29 @@
+{
+	"name": "code-area/laraarea-property",
+	"description": "Useful functions",
+	"keywords": ["laravel"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Codearea",
+			"email": "davitzeynalyan@laravel-helper.com",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"laravel/framework": "^5.4"
+	},
+	"autoload": {
+		"psr-4": {
+			"LaraAreaProperty\\": "src/"
+		}
+	},
+	"suggest": {
+		"code-area/laraarea-helpers": "Useful functions"
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\": "tests/"
+		}
+	}
+}
