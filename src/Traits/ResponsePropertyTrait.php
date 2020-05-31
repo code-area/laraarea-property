@@ -7,8 +7,8 @@ use LaraAreaApi\Models\ApiModel;
 use Illuminate\Support\Facades\App;
 use LaraAreaApi\Services\ApiBaseService;
 use LaraAreaSupport\Arr;
-use LaraAreaSupport\Str;
 use LaraAreaValidator\AreaValidator;
+use Illuminate\Support\Str;
 
 trait ResponsePropertyTrait
 {
@@ -193,11 +193,14 @@ trait ResponsePropertyTrait
         return $this->classRootPath = array_pop($parts);
     }
 
-
-
+    /**
+     * @param $request
+     * @param $result
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     */
     protected function downloadResponse($request, $result)
     {
-        $path = storage_path(str_random());
+        $path = storage_path(Str::random());
         file_put_contents($path, json_encode($result->toArray(), JSON_PRETTY_PRINT));
         $savePath = str_replace($request->root(), '', $request->fullUrl());
         $savePath = str_replace('/', '_', $savePath);
